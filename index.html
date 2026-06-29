@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RTV Market Terminal</title>
+    <!-- Link to our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Core TradingView Library -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+
+    <!-- SVG Gradients -->
+    <svg class="global-defs" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="brandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FF2E50"/>
+                <stop offset="100%" stop-color="#A60011"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- App Header -->
+    <div class="app-header" id="globalHeader">
+        <h1>Markets</h1>
+        <div class="user-avatar">
+            <svg width="18" height="18" viewBox="0 0 24 24" class="icon-stroke"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="workspace" id="mainWorkspace">
+
+        <!-- MODULE 1: DASHBOARD -->
+        <div id="view-dashboard" class="view-module is-active">
+            <div class="welcome-header">
+                Welcome back,
+                <span>Market Overview</span>
+            </div>
+            
+            <!-- Asset 1: Gold -->
+            <div class="asset-card">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "OANDA:XAUUSD", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M",
+                        "colorTheme": "dark", "trendLineColor": "#F5B726", "underLineColor": "rgba(245, 183, 38, 0.15)",
+                        "underLineBottomColor": "rgba(245, 183, 38, 0)", "isTransparent": true, "autosize": true
+                    }
+                    </script>
+                </div>
+                <div class="mask-overlay mask-dash"></div> 
+                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+
+            <!-- Asset 2: DXY -->
+            <div class="asset-card">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "CAPITALCOM:DXY", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M",
+                        "colorTheme": "dark", "trendLineColor": "#0E85FF", "underLineColor": "rgba(14, 133, 255, 0.15)",
+                        "underLineBottomColor": "rgba(14, 133, 255, 0)", "isTransparent": true, "autosize": true
+                    }
+                    </script>
+                </div>
+                <div class="mask-overlay mask-dash"></div> 
+                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+
+            <!-- Asset 3: S&P 500 -->
+            <div class="asset-card">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "SP:SPX", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M",
+                        "colorTheme": "dark", "trendLineColor": "#00C873", "underLineColor": "rgba(0, 200, 115, 0.15)",
+                        "underLineBottomColor": "rgba(0, 200, 115, 0)", "isTransparent": true, "autosize": true
+                    }
+                    </script>
+                </div>
+                <div class="mask-overlay mask-dash"></div> 
+                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+
+            <!-- Asset 4: Bitcoin -->
+            <div class="asset-card">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "BINANCE:BTCUSDT", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M",
+                        "colorTheme": "dark", "trendLineColor": "#F7931A", "underLineColor": "rgba(247, 147, 26, 0.15)",
+                        "underLineBottomColor": "rgba(247, 147, 26, 0)", "isTransparent": true, "autosize": true
+                    }
+                    </script>
+                </div>
+                <div class="mask-overlay mask-dash"></div> 
+                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+
+            <!-- Asset 5: Crude Oil -->
+            <div class="asset-card">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "TVC:USOIL", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M",
+                        "colorTheme": "dark", "trendLineColor": "#FF2E50", "underLineColor": "rgba(255, 46, 80, 0.15)",
+                        "underLineBottomColor": "rgba(255, 46, 80, 0)", "isTransparent": true, "autosize": true
+                    }
+                    </script>
+                </div>
+                <div class="mask-overlay mask-dash"></div> 
+                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 2: CHART TERMINAL -->
+        <div id="view-terminal" class="view-module">
+            
+            <div class="wb-chart-header">
+                <div class="wb-header-left">
+                    <svg width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="color: var(--text-primary); cursor:pointer;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <div class="wb-asset-info">
+                        <h2>XAUUSD</h2>
+                        <div class="price-tick">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 10l5 5 5-5z"></path></svg>
+                            Live Market Data
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-header-right">
+                    <svg width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="cursor:pointer;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="cursor:pointer;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                </div>
+            </div>
+
+            <div class="wb-chart-container">
+                
+                <!-- TIMEFRAME MENU -->
+                <div id="tf-dropdown" class="tf-menu">
+                    <div class="tf-grid">
+                        <div class="tf-option" onclick="applyTimeframe('1', '1m', this)">1m</div>
+                        <div class="tf-option" onclick="applyTimeframe('5', '5m', this)">5m</div>
+                        <div class="tf-option" onclick="applyTimeframe('15', '15m', this)">15m</div>
+                        <div class="tf-option" onclick="applyTimeframe('30', '30m', this)">30m</div>
+                        <div class="tf-option" onclick="applyTimeframe('60', '1H', this)">1H</div>
+                        <div class="tf-option" onclick="applyTimeframe('240', '4H', this)">4H</div>
+                        <div class="tf-option is-active" onclick="applyTimeframe('D', 'Daily', this)">Daily</div>
+                        <div class="tf-option" onclick="applyTimeframe('W', '1W', this)">1W</div>
+                        <div class="tf-option" onclick="applyTimeframe('M', '1M', this)">1M</div>
+                    </div>
+                </div>
+
+                <div id="dynamic-chart-wrapper" style="height:100%;width:100%;"></div>
+                
+                <div class="mask-overlay mask-chart"></div>
+                <div class="brand-monogram pos-terminal" onclick="toggleBranding(this)">
+                    <div class="brand-circle"><div class="brand-typography">RTV</div></div>
+                    <div class="brand-label">Rishad Trade Viewer</div>
+                </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="wb-chart-toolbar">
+                <div class="wb-tool-item is-selected" id="tf-selector-btn" onclick="toggleTimeframeMenu()">
+                    <span id="current-tf-label">Daily</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" class="icon-stroke" style="margin-left: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                
+                <div style="flex:1"></div>
+
+                <div class="wb-tool-item" id="btn-style" onclick="updateChartSetting('style', null, this)" style="margin-right: 20px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" class="icon-stroke"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                
+                <div class="wb-tool-item" id="btn-draw" onclick="updateChartSetting('draw', null, this)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" class="icon-stroke"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MODULE 3: NEWS FEED -->
+        <div id="view-news" class="view-module">
+            <div class="asset-card" style="height: 100%; border: none;">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                    {
+                        "feedMode": "all_symbols", "isTransparent": true, "displayMode": "regular",
+                        "width": "100%", "height": "100%", "colorTheme": "dark", "locale": "en"
+                    }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 4: MENU -->
+        <div id="view-menu" class="view-module">
+            <ul style="list-style: none;">
+                <li style="display: flex; align-items: center; padding: 20px; background: var(--bg-panel); border-radius: 12px; border: 1px solid var(--border-subtle); font-weight: 500; color: var(--text-secondary);">
+                    <span style="margin-right: 15px; font-size: 20px;">🧮</span>
+                    Dynamic Gold Calculator (Pending Integration)
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="primary-nav">
+        <button class="nav-action is-active" onclick="routeTo('view-dashboard', 'Markets', this)">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Home
+        </button>
+        <button class="nav-action" onclick="routeTo('view-terminal', 'Terminal', this)">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Chart
+        </button>
+        <button class="nav-action" onclick="routeTo('view-news', 'Intelligence', this)">
+            <svg viewBox="0 0 24 24"><path d="M19 32H5C3.89543 32 3 31.1046 3 30V6C3 4.89543 3.89543 4 5 4H19C20.1046 4 21 4.89543 21 6V30C21 31.1046 20.1046 32 19 32Z"></path><path d="M7 10H17"></path><path d="M7 16H17"></path><path d="M7 22H11"></path></svg>
+            News
+        </button>
+        <button class="nav-action" onclick="routeTo('view-menu', 'Workspace', this)">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            Menu
+        </button>
+    </div>
+
+    <!-- Link to our Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
