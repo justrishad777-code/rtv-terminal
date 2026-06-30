@@ -4,7 +4,7 @@ let chartState = {
     style: "1",      // 1=Solid, 9=Hollow, 3=Area
     showDraw: false  
 };
-
+ 
 let isChartInitialized = false;
 
 function renderDynamicChart() {
