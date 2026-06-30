@@ -3,14 +3,14 @@
    ========================================= */
 :root {
     --bg-base: #000000;           
-    --bg-panel: #11141C;          
+    --bg-panel: #151924;          
     --text-primary: #F3F5F7;      
     --text-secondary: #747A8A;    
     --accent-bullish: #00C873;    
     --accent-bearish: #FF2E50;    
     --accent-blue: #0E85FF;       
     --border-subtle: #1C212D;     
-    --nav-glass: rgba(17, 20, 28, 0.95);
+    --nav-glass: rgba(21, 25, 36, 0.95);
 }
 
 /* =========================================
@@ -76,8 +76,7 @@ body {
 .workspace {
     flex: 1;
     overflow-y: auto;
-    /* PADDING FIX: 120px bottom ensures bottom cards are completely visible above nav */
-    padding: 10px 15px 120px 15px;
+    padding: 10px 15px 130px 15px; /* Fixed spacing clearance for bottom asset cards */
     scrollbar-width: none;
     transition: padding 0.3s ease;
     scroll-behavior: smooth;
@@ -206,7 +205,7 @@ body {
     color: var(--text-primary);
 }
 
-/* TIMEFRAME DROPDOWN MENU */
+/* TIMEFRAME DROPDOWN MODAL */
 .tf-menu {
     display: none;
     position: absolute;
@@ -255,7 +254,7 @@ body {
 }
 
 /* =========================================
-   BRANDING MASKS & MONOGRAM
+   BRANDING MASKS & MONOGRAM CONFIG
    ========================================= */
 .mask-overlay {
     position: absolute;
@@ -314,19 +313,6 @@ body {
     flex-shrink: 0;
 }
 
-.brand-typography {
-    font-family: "Arial Black", Impact, sans-serif;
-    font-size: 13.5px;
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: -1.8px;
-    background: linear-gradient(180deg, #FF2E50 0%, #B81222 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: skewX(-6deg);
-    margin-right: 3px;
-}
-
 .brand-label {
     color: var(--text-primary);
     font-size: 13.5px;
@@ -350,7 +336,38 @@ body {
 .pos-terminal.is-expanded .brand-label { opacity: 1; margin-left: 10px; margin-right: 14px; }
 
 /* =========================================
-   PRIMARY NAVIGATION BAR
+   WORKSPACE CONFIG MENU STYLING
+   ========================================= */
+.settings-menu {
+    list-style: none;
+    width: 100%;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: var(--bg-panel);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: var(--text-primary);
+}
+
+.settings-item:active { 
+    background: var(--border-subtle); 
+}
+
+.settings-icon { 
+    margin-right: 15px; 
+    font-size: 18px; 
+}
+
+/* =========================================
+   PRIMARY BOTTOM NAVIGATION BAR
    ========================================= */
 .primary-nav {
     position: fixed;
