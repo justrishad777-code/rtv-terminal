@@ -33,8 +33,8 @@ html, body {
     scrollbar-width: none; scroll-behavior: smooth; position: relative; 
 }
 .workspace::-webkit-scrollbar { display: none; }
-.view-module { display: none; flex: 1; animation: moduleFadeIn 0.2s ease-out; }
-.view-module.is-active { display: flex; flex-direction: column; }
+.view-module { display: none; flex: 1; }
+.view-module.is-active { display: flex; flex-direction: column; animation: moduleFadeIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 /* PULL TO REFRESH */
 #view-dashboard { position: relative; }
@@ -64,7 +64,7 @@ html, body {
 }
 .pull-refresh-indicator.is-done .ptr-spinner { opacity: 0; }
 .pull-refresh-indicator.is-done .ptr-check { opacity: 1; transform: scale(1); }
-@keyframes moduleFadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes moduleFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 .welcome-header { margin: 8px 0 14px 0; padding-right: 64px; color: var(--text-secondary); font-size: 13px; }
 .welcome-header span { color: var(--text-primary); font-size: 19px; font-weight: 700; display: block; margin-top: 3px; }
@@ -181,11 +181,12 @@ flex-direction: row-reverse;
 /* BOTTOM NAV */
 .primary-nav { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(180deg, #12151d 0%, #090b10 100%); border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-around; align-items: center; z-index: 100; flex-shrink: 0; }
 .primary-nav::before { content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255, 59, 48, 0.5) 50%, transparent 100%); box-shadow: 0 0 8px rgba(255, 59, 48, 0.6); }
-.nav-action { position: relative; background: none; border: none; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 600; gap: 2px; cursor: pointer; transition: color 0.2s; padding: 6px 14px; border-radius: 10px; }
-.nav-action svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s; }
+.nav-action { position: relative; background: none; border: none; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 600; gap: 2px; cursor: pointer; transition: color 0.2s ease; padding: 6px 14px; border-radius: 10px; }
+.nav-action svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.2s ease, filter 0.2s ease; }
 .nav-action.is-active { color: #FF3B30; background: rgba(255, 59, 48, 0.1); }
 .nav-action.is-active svg { stroke: #FF3B30; filter: drop-shadow(0 0 4px rgba(255, 59, 48, 0.6)); }
-.nav-action.is-active::after { content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); width: 18px; height: 2px; border-radius: 2px; background: #FF3B30; box-shadow: 0 0 6px rgba(255, 59, 48, 0.8); }
+.nav-action::after { content: ''; position: absolute; top: -7px; left: 50%; width: 18px; height: 2px; border-radius: 2px; background: #FF3B30; box-shadow: 0 0 6px rgba(255, 59, 48, 0.8); opacity: 0; transform: translateX(-50%) scaleX(0.4); transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform, opacity; }
+.nav-action.is-active::after { opacity: 1; transform: translateX(-50%) scaleX(1); }
 
 /* MENUS & MODALS */
 .settings-menu {
@@ -220,6 +221,20 @@ flex-direction: row-reverse;
 }
 .install-cta:active { transform: scale(0.97); box-shadow: 0 2px 10px rgba(255, 59, 48, 0.25); }
 .install-cta .settings-icon { font-size: 17px; }
+
+#view-menu.is-active .settings-item,
+#view-menu.is-active .install-cta {
+    animation: menuItemIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+#view-menu.is-active .settings-item:nth-child(1) { animation-delay: 0.02s; }
+#view-menu.is-active .settings-item:nth-child(2) { animation-delay: 0.06s; }
+#view-menu.is-active .settings-item:nth-child(3) { animation-delay: 0.10s; }
+#view-menu.is-active .install-cta { animation-delay: 0.12s; }
+
+@keyframes menuItemIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .full-screen-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-base); z-index: 9999; display: none; flex-direction: column; animation: slideUp 0.2s ease; }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 .search-header { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: var(--bg-panel); border-bottom: 1px solid var(--border-subtle); gap: 15px; }
