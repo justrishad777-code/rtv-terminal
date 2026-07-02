@@ -8,7 +8,6 @@
     <!-- PWA Setup -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="aurx-icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="aurx-icon.svg">
     
     <meta name="theme-color" content="#000000">
     <meta name="mobile-web-app-capable" content="yes">
@@ -50,7 +49,7 @@
                     </script>
                 </div>
                 <div class="mask-overlay mask-dash"></div> 
-                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
                             <path d="M 25,80 L 50,25 L 75,80" stroke="#00C873" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -68,7 +67,7 @@
                     </script>
                 </div>
                 <div class="mask-overlay mask-dash"></div> 
-                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
                             <path d="M 25,80 L 50,25 L 75,80" stroke="#00C873" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -86,7 +85,7 @@
                     </script>
                 </div>
                 <div class="mask-overlay mask-dash"></div> 
-                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
                             <path d="M 25,80 L 50,25 L 75,80" stroke="#00C873" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -104,7 +103,7 @@
                     </script>
                 </div>
                 <div class="mask-overlay mask-dash"></div> 
-                <div class="brand-monogram pos-dashboard" onclick="toggleBranding(this)">
+                <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
                             <path d="M 25,80 L 50,25 L 75,80" stroke="#00C873" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -116,7 +115,7 @@
             </div>
         </div>
 
-        <!-- MODULE 2: CHART (NO SCROLL) -->
+        <!-- MODULE 2: CHART -->
         <div id="view-terminal" class="view-module">
             
             <div class="wb-chart-header">
@@ -141,7 +140,7 @@
                 <div id="dynamic-chart-wrapper" style="height:100%;width:100%;"></div>
                 
                 <div class="mask-overlay mask-chart"></div>
-                <div class="brand-monogram pos-terminal" onclick="toggleBranding(this)">
+                <div class="brand-monogram pos-terminal" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
                             <path d="M 25,80 L 50,25 L 75,80" stroke="#00C873" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
@@ -170,7 +169,7 @@
                 <li class="settings-item" onclick="performSystemCleanup()">
                     <span class="settings-icon">🧹</span> Clear System Cache
                 </li>
-                <li class="settings-item" onclick="alert('Aurx Pro Engine v1.0 Native Build is running.')">
+                <li class="settings-item" onclick="alert('Aurx Pro Engine v6.2 Native Build is running.')">
                     <span class="settings-icon">ℹ️</span> System Version Info
                 </li>
             </ul>
