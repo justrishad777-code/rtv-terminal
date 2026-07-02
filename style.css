@@ -66,18 +66,19 @@ html, body {
 /* BRANDING LOGO (Expandable) */
 .brand-monogram { 
     position: absolute; z-index: 2147483647; display: flex; align-items: center; 
-    background-color: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 200, 115, 0.3); 
+    background-color: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 200, 115, 0.6); 
     border-radius: 22px; height: 36px; padding: 3px; cursor: pointer; 
-    transition: max-width 0.4s ease, background-color 0.3s; 
+    transition: max-width 0.4s ease, background-color 0.3s, box-shadow 0.3s; 
     max-width: 36px; overflow: hidden; white-space: nowrap; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 12px rgba(0, 200, 115, 0.55), 0 0 2px rgba(0, 200, 115, 0.8); 
 }
 .brand-monogram.is-expanded { 
-    max-width: 150px; background-color: #11141C; border-color: rgba(0, 200, 115, 0.8); 
+    max-width: 150px; background-color: #11141C; border-color: rgba(0, 200, 115, 0.9); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 18px rgba(0, 200, 115, 0.75), 0 0 3px rgba(0, 200, 115, 0.9); 
 }
 .brand-circle { 
     min-width: 28px; height: 28px; border-radius: 50%; 
-    background: #000; border: 1px solid #1C212D; 
+    background: #000; border: 1px solid rgba(0, 200, 115, 0.7); 
     display: flex; justify-content: center; align-items: center; 
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); flex-shrink: 0; 
 }
