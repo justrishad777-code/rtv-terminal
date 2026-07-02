@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <!-- MODULE 2: CHART TERMINAL (LOCKED LAYOUT) -->
+        <!-- MODULE 2: CHART TERMINAL (ULTRA MAX SPACE) -->
         <div id="view-terminal" class="view-module">
             
             <div class="wb-chart-header">
@@ -108,62 +108,20 @@
                     </div>
                 </div>
                 <div class="wb-header-right">
-                    <!-- WEBULL NATIVE SEARCH ICON -->
+                    <!-- SEARCH ICON -->
                     <svg onclick="openSearchModal()" width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="cursor:pointer;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <svg onclick="alert('Multiple chart layout integration pending.')" width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="cursor:pointer;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                    <!-- SETTINGS / TIMEFRAME MENU ICON -->
+                    <svg onclick="openChartSettings()" width="22" height="22" viewBox="0 0 24 24" class="icon-stroke" style="cursor:pointer;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                 </div>
             </div>
 
+            <!-- Dynamic Chart Container -->
             <div class="wb-chart-container">
-                
-                <!-- TIMEFRAME MENU -->
-                <div id="tf-dropdown" class="custom-dropdown">
-                    <div class="grid-menu">
-                        <div class="menu-option" onclick="applyTimeframe('1', '1m', this)">1m</div>
-                        <div class="menu-option" onclick="applyTimeframe('5', '5m', this)">5m</div>
-                        <div class="menu-option" onclick="applyTimeframe('15', '15m', this)">15m</div>
-                        <div class="menu-option" onclick="applyTimeframe('30', '30m', this)">30m</div>
-                        <div class="menu-option" onclick="applyTimeframe('60', '1H', this)">1H</div>
-                        <div class="menu-option" onclick="applyTimeframe('240', '4H', this)">4H</div>
-                        <div class="menu-option is-active" onclick="applyTimeframe('D', 'Daily', this)">Daily</div>
-                        <div class="menu-option" onclick="applyTimeframe('W', '1W', this)">1W</div>
-                        <div class="menu-option" onclick="applyTimeframe('M', '1M', this)">1M</div>
-                    </div>
-                </div>
-
-                <!-- CHART STYLE MENU (Solid, Hollow, Line) -->
-                <div id="style-dropdown" class="custom-dropdown style-menu-pos">
-                    <div class="grid-menu">
-                        <div class="menu-option is-active" onclick="applyStyle('1', this)">Solid Candle</div>
-                        <div class="menu-option" onclick="applyStyle('9', this)">Hollow Candle</div>
-                        <div class="menu-option" onclick="applyStyle('3', this)">Area Line</div>
-                    </div>
-                </div>
-
                 <div id="dynamic-chart-wrapper" style="height:100%;width:100%;"></div>
-                
                 <div class="mask-overlay mask-chart"></div>
                 <div class="brand-monogram pos-terminal" onclick="toggleBranding(this)">
                     <div class="brand-circle"><div class="brand-typography">RTV</div></div>
                     <div class="brand-label">Rishad Trade Viewer</div>
-                </div>
-            </div>
-
-            <!-- COMPACT BOTTOM TOOLBAR -->
-            <div class="wb-chart-toolbar">
-                <div class="wb-tool-item is-selected" onclick="toggleMenu('tf-dropdown')">
-                    <span id="current-tf-label">Daily</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" class="icon-stroke" style="margin-left: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-                
-                <div style="flex:1"></div>
-
-                <div class="wb-tool-item" onclick="toggleMenu('style-dropdown')" style="margin-right: 20px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" class="icon-stroke"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                </div>
-                
-                <div class="wb-tool-item" id="btn-draw" onclick="toggleDrawing(this)">
-                    <svg width="20" height="20" viewBox="0 0 24 24" class="icon-stroke"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 </div>
             </div>
         </div>
@@ -185,7 +143,7 @@
                 <li class="settings-item" onclick="performSystemCleanup()">
                     <span class="settings-icon">🧹</span> Clear System Cache
                 </li>
-                <li class="settings-item" onclick="alert('RTV Terminal Environment v3.0 Webull Pro is running.')">
+                <li class="settings-item" onclick="alert('RTV Terminal Environment v3.5 is running natively.')">
                     <span class="settings-icon">ℹ️</span> System Version Info
                 </li>
             </ul>
@@ -193,7 +151,7 @@
     </div>
 
     <!-- WEBULL STYLE NATIVE SEARCH OVERLAY -->
-    <div id="searchModal" class="search-overlay">
+    <div id="searchModal" class="full-screen-modal">
         <div class="search-header">
             <div class="search-bar">
                 <svg width="18" height="18" viewBox="0 0 24 24" class="icon-stroke" style="color:var(--text-secondary)"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -201,8 +159,8 @@
             </div>
             <span class="search-cancel" onclick="closeSearchModal()">Cancel</span>
         </div>
-        <div class="search-body">
-            <h3 class="watchlist-title">My Watchlist</h3>
+        <div class="modal-body">
+            <h3 class="section-title">My Watchlist</h3>
             <ul class="watchlist-list" id="watchlistItems">
                 <li onclick="selectSymbol('OANDA:XAUUSD', 'Gold Spot / U.S. Dollar', 'XAUUSD')">
                     <div class="wl-left"><div class="wl-icon" style="background:#F5B726;">G</div></div>
@@ -233,6 +191,46 @@
                     <div class="wl-info"><h4>USOIL</h4><p>Crude Oil</p></div>
                 </li>
             </ul>
+        </div>
+    </div>
+
+    <!-- CHART SETTINGS OVERLAY (Timeframe & Tools) -->
+    <div id="chartSettingsModal" class="full-screen-modal">
+        <div class="search-header">
+            <h3 style="color:var(--text-primary); font-size:16px;">Chart Settings</h3>
+            <span class="search-cancel" onclick="closeChartSettings()">Done</span>
+        </div>
+        <div class="modal-body">
+            <div class="settings-section">
+                <h4 class="section-title">Timeframe</h4>
+                <div class="tf-grid">
+                    <div class="tf-option" onclick="applyTimeframe('1', this)">1m</div>
+                    <div class="tf-option" onclick="applyTimeframe('5', this)">5m</div>
+                    <div class="tf-option" onclick="applyTimeframe('15', this)">15m</div>
+                    <div class="tf-option" onclick="applyTimeframe('30', this)">30m</div>
+                    <div class="tf-option" onclick="applyTimeframe('60', this)">1H</div>
+                    <div class="tf-option" onclick="applyTimeframe('240', this)">4H</div>
+                    <div class="tf-option is-active" onclick="applyTimeframe('D', this)">Daily</div>
+                    <div class="tf-option" onclick="applyTimeframe('W', this)">1W</div>
+                    <div class="tf-option" onclick="applyTimeframe('M', this)">1M</div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h4 class="section-title">Chart Type</h4>
+                <div class="tf-grid">
+                    <div class="tf-option is-active" onclick="applyStyle('1', this)">Solid Candle</div>
+                    <div class="tf-option" onclick="applyStyle('9', this)">Hollow Candle</div>
+                    <div class="tf-option" onclick="applyStyle('3', this)">Area Line</div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h4 class="section-title">Drawing Tools</h4>
+                <div class="tf-grid">
+                    <div class="tf-option" id="toggle-draw-btn" onclick="toggleDrawingMenu(this)">Show Left Toolbar</div>
+                </div>
+            </div>
         </div>
     </div>
 
