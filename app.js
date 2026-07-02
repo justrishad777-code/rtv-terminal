@@ -89,7 +89,51 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFavoriteStates();
     reorderDashboardCards();
     initPullToRefresh();
+    initInstallPrompt();
 });
+
+let deferredInstallPrompt = null;
+
+function initInstallPrompt() {
+    const installItem = document.getElementById('installAppItem');
+    if (!installItem) return;
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    if (isStandalone) {
+        installItem.style.display = 'none';
+        return;
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        installItem.style.display = 'flex';
+    });
+
+    window.addEventListener('appinstalled', () => {
+        deferredInstallPrompt = null;
+        installItem.style.display = 'none';
+    });
+
+    const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    if (isIos) {
+        installItem.style.display = 'flex';
+    }
+}
+
+function handleInstallClick() {
+    const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.finally(() => {
+            deferredInstallPrompt = null;
+        });
+    } else if (isIos) {
+        alert('To install Aurx: tap the Share icon in Safari, then select "Add to Home Screen".');
+    } else {
+        alert('Install is not available in this browser yet. Try opening this app in Chrome or Edge on desktop/Android.');
+    }
+}
 
 function initPullToRefresh() {
     const scrollContainer = document.getElementById('mainWorkspace');
