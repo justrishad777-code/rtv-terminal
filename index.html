@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aurx</title>
     
-    <!-- PWA Setup -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="aurx-icon.svg" type="image/svg+xml">
     
@@ -27,7 +26,6 @@
         </defs>
     </svg>
 
-    <!-- Global App Header -->
     <div class="app-header" id="globalHeader">
         <h1>Markets</h1>
         <div class="user-avatar">
@@ -35,10 +33,8 @@
         </div>
     </div>
 
-    <!-- MAIN WORKSPACE -->
     <div class="workspace" id="mainWorkspace">
 
-        <!-- MODULE 1: DASHBOARD -->
         <div id="view-dashboard" class="view-module is-active">
             <div class="welcome-header">Welcome back, <span>Market Overview</span></div>
             
@@ -48,7 +44,7 @@
                     { "symbol": "OANDA:XAUUSD", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "dark", "trendLineColor": "#F5B726", "isTransparent": true, "autosize": true }
                     </script>
                 </div>
-                <div class="mask-overlay mask-dash"></div> 
+                <div class="mask-tv-top-right"></div> 
                 <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
@@ -66,7 +62,7 @@
                     { "symbol": "CAPITALCOM:DXY", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "dark", "trendLineColor": "#0E85FF", "isTransparent": true, "autosize": true }
                     </script>
                 </div>
-                <div class="mask-overlay mask-dash"></div> 
+                <div class="mask-tv-top-right"></div> 
                 <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
@@ -84,7 +80,7 @@
                     { "symbol": "CAPITALCOM:US500", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "dark", "trendLineColor": "#00C873", "isTransparent": true, "autosize": true }
                     </script>
                 </div>
-                <div class="mask-overlay mask-dash"></div> 
+                <div class="mask-tv-top-right"></div> 
                 <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
@@ -102,7 +98,7 @@
                     { "symbol": "BINANCE:BTCUSDT", "width": "100%", "height": "100%", "locale": "en", "dateRange": "1M", "colorTheme": "dark", "trendLineColor": "#F7931A", "isTransparent": true, "autosize": true }
                     </script>
                 </div>
-                <div class="mask-overlay mask-dash"></div> 
+                <div class="mask-tv-top-right"></div> 
                 <div class="brand-monogram pos-dashboard" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
@@ -115,7 +111,6 @@
             </div>
         </div>
 
-        <!-- MODULE 2: CHART -->
         <div id="view-terminal" class="view-module">
             
             <div class="wb-chart-header">
@@ -135,11 +130,9 @@
                 </div>
             </div>
 
-            <!-- Dynamic Chart Container -->
             <div class="wb-chart-container">
                 <div id="dynamic-chart-wrapper" style="height:100%;width:100%;"></div>
                 
-                <div class="mask-overlay mask-chart"></div>
                 <div class="brand-monogram pos-terminal" onclick="event.stopPropagation(); toggleBranding(this)">
                     <div class="brand-circle">
                         <svg width="14" height="14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 0px 4px rgba(0,200,115,0.4));">
@@ -152,7 +145,6 @@
             </div>
         </div>
 
-        <!-- MODULE 3: NEWS FEED -->
         <div id="view-news" class="view-module">
             <div class="asset-card" style="height: 100%; border: none;">
                 <div class="tradingview-widget-container">
@@ -163,20 +155,18 @@
             </div>
         </div>
 
-        <!-- MODULE 4: MENU -->
         <div id="view-menu" class="view-module">
             <ul class="settings-menu">
                 <li class="settings-item" onclick="performSystemCleanup()">
                     <span class="settings-icon">🧹</span> Clear System Cache
                 </li>
-                <li class="settings-item" onclick="alert('Aurx Pro Engine v6.2 Native Build is running.')">
+                <li class="settings-item" onclick="alert('Aurx Pro Engine v6.3 Native Build is running.')">
                     <span class="settings-icon">ℹ️</span> System Version Info
                 </li>
             </ul>
         </div>
     </div>
 
-    <!-- NATIVE SEARCH OVERLAY -->
     <div id="searchModal" class="full-screen-modal">
         <div class="search-header">
             <div class="search-bar">
@@ -220,7 +210,6 @@
         </div>
     </div>
 
-    <!-- CHART SETTINGS OVERLAY -->
     <div id="chartSettingsModal" class="full-screen-modal">
         <div class="search-header">
             <h3 style="color:var(--text-primary); font-size:16px;">Chart Settings</h3>
@@ -260,7 +249,6 @@
         </div>
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
     <div class="primary-nav">
         <button class="nav-action is-active" onclick="routeTo('view-dashboard', 'Markets', this)">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
