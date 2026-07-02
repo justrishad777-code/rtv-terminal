@@ -1,20 +1,16 @@
 {
-  "name": "RTV Terminal",
-  "short_name": "RTV",
+  "name": "Aurx",
+  "short_name": "Aurx",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml"
+      "src": "aurx-icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
